@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\PageController;
 use App\Http\Controllers\Admin_auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\PostController;
+use App\Http\Controllers\FrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,9 @@ use App\Http\Controllers\admin\PostController;
 
 // home page routes 
 
-Route::get('/',[PageController::class,'home']);
+Route::get('/',[FrontController::class,'homeData']);
 
-// Route::get
+Route::get('/post/{id}',[FrontController::class,'post']);
 
 
 // end home page 
