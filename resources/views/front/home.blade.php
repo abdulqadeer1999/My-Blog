@@ -2,6 +2,8 @@
 
 @section('page_title','Home Page')
 
+@section('page_name','My First Blog')
+
 @section('container')
 
 <div class="container px-4 px-lg-5">
@@ -12,13 +14,12 @@
 			@foreach ($result as $list )
 				
 			<div class="post-preview">
-				<a href="post.html">
-					<h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-					<h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
+				<a href="{{url('post/'.$list->id)}}">
+					<h2 class="post-title">{{$list->title}}</h2>
+					<h3 class="post-subtitle">{{$list->short_desc}}</h3>
 				</a>
 				<p class="post-meta">
-					Posted
-					on September 24, 2021
+					{{$list->post_date}}
 				</p>
 
 				@endforeach

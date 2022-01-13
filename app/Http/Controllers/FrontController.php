@@ -7,14 +7,17 @@ use Illuminate\Support\Facades\DB;
 class FrontController extends Controller
 {
     
-    public function home () {
+    // public function home () {
 
-        return view('front/home');
-    }
+    //     return view('front/home');
+    
+    // }
 
     public function post() {
 
-        return view('front.post');
+        $data['result'] = DB::table('posts')->orderBy('id','desc')->get();
+        return view('front.post',$data);
+
     }
 
 
