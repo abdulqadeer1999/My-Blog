@@ -28,6 +28,7 @@ class PostController extends Controller
         $request->validate([
 
             'title'=>'required',
+            'slug'=>'required|unique:posts',
             'short_desc'=>'required',
             'long_desc'=>'required',
             'image'=>'required|mimes:png,jpg,jpeg',
@@ -45,6 +46,7 @@ class PostController extends Controller
 
         $data=array(
             'title'=>$request->post('title'),
+            'slug'=>$request->post('slug'),
             'short_desc'=>$request->post('short_desc'),
             'long_desc'=>$request->post('long_desc'),
             'image'=>$file,
@@ -82,6 +84,7 @@ class PostController extends Controller
         $request->validate([
 
             'title'=>'required',
+            'slug'=>'required',
             'short_desc'=>'required',
             'long_desc'=>'required',
             'image'=>'mimes:png,jpg,jpeg',
@@ -92,6 +95,7 @@ class PostController extends Controller
 
         $data=array(
             'title'=>$request->post('title'),
+            'slug'=>$request->post('slug'),
             'short_desc'=>$request->post('short_desc'),
             'long_desc'=>$request->post('long_desc'),
             // 'image'=>$file,

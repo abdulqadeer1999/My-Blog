@@ -24,8 +24,11 @@ Route::get('/',[FrontController::class,'homeData']);
 
 Route::get('/post/{id}',[FrontController::class,'post']);
 
+Route::get('/page/{id}',[FrontController::class,'page']);
 
-// end home page 
+
+
+// end home page routes
 
 Route::get('admin/login',[Admin_auth::class,'login']);
 

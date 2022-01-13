@@ -24,7 +24,19 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url('/')}}">Home</a></li>
-                       
+
+                        <?php
+                                 use App\Http\Controllers\FrontController;
+                                 $result=FrontController::page_menu();
+
+                        ?>
+
+                       @foreach ($result as $list)
+                           
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url('/page/'.$list->slug)}}">{{$list->name}}</a></li>
+
+                        @endforeach
+
                     </ul>
                 </div>
             </div>
