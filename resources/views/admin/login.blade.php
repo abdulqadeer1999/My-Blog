@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>{{@config('constants.site_name')}}</title>
 
     <!-- Bootstrap -->
     <link href="{{ asset('admin_asset/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -26,17 +26,21 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
+            <form action="{{url('/admin/login_submit')}}" method="POST">
+
+              @csrf
               <h1>Login Form</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="email" class="form-control" placeholder="Email" name="email" required="" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" class="form-control" placeholder="Password" name="password" required="" />
               </div>
               <div>
                 <input type="submit" class="btn btn-default submit" name="submit">
               </div>
+
+              {{session('msg')}}
 
               <div class="clearfix"></div>
 

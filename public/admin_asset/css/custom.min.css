@@ -11,3 +11,13 @@
 #slash{
 	display: none;
 }
+
+.field_error {
+	color:red;
+}
+
+.flash_msg {
+	text-align: center;
+	color:green;
+	font-size:  24px;
+}

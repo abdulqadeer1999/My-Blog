@@ -1,14 +1,14 @@
 @extends('admin/layout.layout')
 
-@section('page_title','Post Listing')
+@section('page_title','Page Listing')
 
 @section('container')
 
 <div class="">
 	  <div class="page-title">
 		 <div class="title_left">
-			<h4>Post</h4>
-			<h2><a href="/admin/addpost">Add Post</a></h2>
+			<h4>Page</h4>
+			<h2><a href="{{url('/admin/addpage')}}">Add Page</a></h2>
 			
 		 </div>
 	  </div>
@@ -24,12 +24,10 @@
 						   <table id="datatable" class="table table-striped table-bordered" style="width:100%">
 							  <thead>
 								 <tr>
-									<th width="2%">ID</th>
-									<th width="20%">Title</th>
-									<th>Short Desc</th>
-									<th width="10%">Image</th>
-									<th width="10%">Date</th>
-									<th width="18%">Action</th>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Slug</th>
+									<th>Action</th>
 								 </tr>
 							  </thead>
 							  <tbody>
@@ -37,14 +35,12 @@
 									 
 								 <tr>
 									<td>{{$list->id}}</td>
-									<td>{{$list->title}}</td>
-									<td>{{$list->short_desc}}</td>
-									<td><img src="{{asset('storage/post/'.$list->image)}}" width="200px" height="120px"/></td>
-									<td>{{$list->post_date}}</td>
+									<td>{{$list->name}}</td>
+									<td>{{$list->slug}}</td>
 									<td>
 
-										<a  class="btn btn-info" href="{{url('admin/post/edit/'.$list->id)}}">Edit</a>
-										<a  class="btn btn-danger" href="{{url('admin/post/delete/'.$list->id)}}">Delete</a>
+										<a  class="btn btn-info" href="{{url('admin/page/edit/'.$list->id)}}">Edit</a>
+										<a  class="btn btn-danger" href="{{url('admin/page/delete/'.$list->id)}}">Delete</a>
 
 									</td>
 

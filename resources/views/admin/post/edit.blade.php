@@ -16,13 +16,13 @@
                         <div class="x_panel">
                            <div class="x_content">
                               <br />
-                              <form class="form-horizontal form-label-left" method="POST" action="{{url('/admin/post/submit')}}" enctype="multipart/form-data">
+                              <form class="form-horizontal form-label-left" method="POST" action="{{url('/admin/post/update/'.$result[0]->id)}}" enctype="multipart/form-data">
 
                                  @csrf
                                  <div class="form-group row ">
                                     <label class="control-label col-md-3 col-sm-3 ">Title</label>
                                     <div class="col-md-9 col-sm-9 ">
-                                       <input type="text" class="form-control" placeholder="Title" name="title">
+                                       <input type="text" class="form-control" placeholder="Title" name="title" value="{{$result[0]->title}}">
 
                                        @error('title')
                                           <span class="field_error" >{{$message}} </span>
@@ -32,7 +32,7 @@
 								 <div class="form-group row ">
                                     <label class="control-label col-md-3 col-sm-3 ">Short Desc</label>
                                     <div class="col-md-9 col-sm-9 ">
-                                       <textarea class="form-control"  name="short_desc"></textarea>
+                                       <textarea class="form-control"  name="short_desc">{{$result[0]->short_desc}}</textarea>
                                        @error('short_desc')
                                        <span class="field_error" >{{$message}} </span>
                                     @enderror
@@ -41,7 +41,7 @@
 								 <div class="form-group row ">
                                     <label class="control-label col-md-3 col-sm-3 ">Desc</label>
                                     <div class="col-md-9 col-sm-9 ">
-                                       <textarea class="form-control"  name="long_desc"></textarea>
+                                       <textarea class="form-control"  name="long_desc">{{$result[0]->long_desc}}</textarea>
                                        @error('long_desc')
                                        <span class="field_error" >{{$message}} </span>
                                     @enderror
@@ -59,7 +59,7 @@
 								 <div class="form-group row ">
                                     <label class="control-label col-md-3 col-sm-3 ">Post Date</label>
                                     <div class="col-md-9 col-sm-9 ">
-                                       <input type="date" name="post_date" class="form-control" >
+                                       <input type="date" name="post_date" class="form-control" value="{{$result[0]->post_date}}" >
                                        @error('post_date')
                                        <span class="field_error" >{{$message}} </span>
                                     @enderror

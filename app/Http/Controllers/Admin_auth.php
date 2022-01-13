@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class Admin_auth extends Controller
 {
     
@@ -12,13 +14,38 @@ class Admin_auth extends Controller
         return view('admin/login');
     }
 
-    public function post() {
+  
 
-        return view('admin.post/list');
-    }
+    public function login_submit(Request $request) {
 
-    public function addpost() {
+        $email = $request->post('email');
+        $password = $request->post('password');
 
-        return view('admin/post/add');
+
+        $result = DB::table('users')
+        ->where('email',$email)
+        ->where('password',$password)->get();
+
+        // echo '<pre>';
+        // print_r($result);
+
+        if(isset($result[0]->id)) {
+            if($result[0]->status==1) {
+              $request->session()->put('BLOG_USER_ID',$result[0]->id);
+              $request->session()->put('BLOG_USER_NAME',$result[0]->name);
+
+              return redirect('admin/post/list');
+            }else {
+          $request->session()->flash('msg','Account deactivated');
+          return redirect('admin/login');
+
+            }
+
+        }else {
+
+             $request->session()->flash('msg','Please enter valid login details');
+
+             return redirect('admin/login');
+        }
     }
 }
