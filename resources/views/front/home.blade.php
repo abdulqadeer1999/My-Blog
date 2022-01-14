@@ -18,6 +18,7 @@
 					<h2 class="post-title">{{$list->title}}</h2>
 					<h3 class="post-subtitle">{{$list->short_desc}}</h3>
 				</a>
+				<img src="{{asset('storage/post/'.$list->image)}}" width="400px" height="170px"/>
 				<p class="post-meta">
 				Posted on {{$list->post_date}}
 				</p>
