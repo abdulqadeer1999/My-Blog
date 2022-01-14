@@ -1,6 +1,6 @@
 @extends('front/layout.layout')
 
-@section('page_title','Home Page')
+@section('title','Home Page')
 
 @section('page_name','My First Blog')
 
@@ -19,7 +19,7 @@
 					<h3 class="post-subtitle">{{$list->short_desc}}</h3>
 				</a>
 				<p class="post-meta">
-					{{$list->post_date}}
+				Posted on {{$list->post_date}}
 				</p>
 
 				@endforeach

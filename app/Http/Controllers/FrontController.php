@@ -26,8 +26,8 @@ class FrontController extends Controller
 
     public function post($id) {
 
-        $data['result'] = DB::table('posts')->where('slug',$id)->get();
-        return view('front.post',$data);
+        $data['result'] = DB::table('posts')->where('id',$id)->get();
+        return view('front/post',$data);
 
     }
 

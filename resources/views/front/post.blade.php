@@ -1,6 +1,6 @@
 @extends('front/layout.layout')
 
-@section('page_title',$result[0]->title)
+@section('title',$result[0]->title)
 
 @section('page_name',$result[0]->title)
 
