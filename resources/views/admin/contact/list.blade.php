@@ -47,8 +47,7 @@
 
 									<td>
 
-										<a  class="btn btn-info" href="{{url('admin/page/edit/'.$list->id)}}">Edit</a>
-										<a  class="btn btn-danger" href="{{url('admin/page/delete/'.$list->id)}}">Delete</a>
+										<a  class="btn btn-danger" href="{{url('admin/contact/delete/'.$list->id)}}">Delete</a>
 
 									</td>
 

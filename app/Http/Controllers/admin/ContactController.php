@@ -15,4 +15,17 @@ class ContactController extends Controller
 
         return view('admin/contact/list',$data);
     }
+
+   
+
+        
+    public function delete(Request $request ,$id) {
+
+        DB::table('contacts')->where('id',$id)->delete();
+
+        $request->session()->flash('msg','Contact Deleted');
+        return redirect('/admin/contact/list');
+    }
+
+    
 }

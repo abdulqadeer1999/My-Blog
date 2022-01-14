@@ -30,6 +30,8 @@ Route::get('/page/{id}',[FrontController::class,'page']);
 
 // end home page routes
 
+Route::post('contact',[FrontController::class,'contact']);
+
 Route::get('admin/login',[Admin_auth::class,'login']);
 
 Route::post('admin/login_submit',[Admin_auth::class,'login_submit'])->name('login_submit');
@@ -73,6 +75,8 @@ Route::group(['middleware'=>['admin_auth']],function() {
 
 
     Route::get('admin/contact/list',[ContactController::class,'contact']);
+
+    Route::get('admin/contact/delete/{id}',[ContactController::class,'delete']);
 
     
 });

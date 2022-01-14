@@ -14,7 +14,7 @@
 			@foreach ($result as $list )
 				
 			<div class="post-preview">
-				<a href="{{url('post/'.$list->id)}}">
+				<a href="{{url('post/'.$list->slug)}}">
 					<h2 class="post-title">{{$list->title}}</h2>
 					<h3 class="post-subtitle">{{$list->short_desc}}</h3>
 				</a>

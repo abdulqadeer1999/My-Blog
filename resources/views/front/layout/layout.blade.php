@@ -24,6 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{url('/')}}">Home</a></li>
+                        
 
                         <?php
                                  use App\Http\Controllers\FrontController;
@@ -107,7 +108,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2021</div>
+                        <div class="small text-center text-muted fst-italic">© <?php echo date("Y"); ?> Copyright Abdul Qadeer Blog </div>
                     </div>
                 </div>
             </div>

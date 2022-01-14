@@ -26,7 +26,7 @@ class FrontController extends Controller
 
     public function post($id) {
 
-        $data['result'] = DB::table('posts')->where('id',$id)->get();
+        $data['result'] = DB::table('posts')->where('slug',$id)->get();
         return view('front/post',$data);
 
     }
@@ -42,5 +42,23 @@ class FrontController extends Controller
         $data['result'] = DB::table('pages')->where('slug',$id)->get();
 
         return view('front/page',$data);
+    }
+
+
+    public function contact(Request $request) {
+
+        $data=array(
+            'name'=>$request->post('name'),
+            'email'=>$request->post('email'),
+            'mobile'=>$request->post('mobile'),
+            'message'=>$request->post('message'),
+            'added_on'=>date('Y-m-d h:i:s')
+
+        );
+
+        DB::table('contacts')->insert($data);
+
+        $request->session()->flash('msg','Thank you we have received your message');
+        return redirect('/page/contact-us');
     }
 }
